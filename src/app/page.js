@@ -39,6 +39,7 @@ const PROJECTS = [
     ],
     meta: ["UCSB Capstone", "2025–2026", "Assistive Technology"],
     images: ["/images/StarRiderII.jpg"],
+    layout: "single",
   },
   {
     id: "sanisure-bioprocess",
@@ -55,6 +56,7 @@ const PROJECTS = [
     ],
     meta: ["SaniSure", "2025–", "Bioprocess Hardware"],
     images: ["/images/IMG_7857.jpg", "/images/IMG_7995.jpg"],
+    layout: "stack",
   },
   {
     id: "dressaire-lab",
@@ -76,6 +78,7 @@ const PROJECTS = [
       "/images/DressaireLabImage1.jpg",
       "/images/DressaireGel.jpeg",
     ],
+    layout: "grid",
   },
   {
     id: "frog",
@@ -91,6 +94,7 @@ const PROJECTS = [
     ],
     meta: ["UCSB", "2025", "Mechanisms"],
     images: ["/images/IMG_9483.JPG", "/images/Jumper.jpg"],
+    layout: "stack",
   },
   {
     id: "urca-steering",
@@ -106,6 +110,7 @@ const PROJECTS = [
     ],
     meta: ["URCA", "2025", "Vehicle Dynamics"],
     images: ["/images/SteeringUrca.jpg"],
+    layout: "single",
   },
   {
     id: "solidworks",
@@ -126,6 +131,7 @@ const PROJECTS = [
       "/images/BridgeTrussFEA.JPG",
       "/images/SkateboardCAD.jpg",
     ],
+    layout: "grid",
   },
   {
     id: "sanisure-dash",
@@ -144,6 +150,7 @@ const PROJECTS = [
       "/images/ChemicalFilters.jpg",
       "/images/Material Engagement Check.jpg",
     ],
+    layout: "stack",
   },
 ];
 
@@ -371,7 +378,6 @@ function SectionIntro({ eyebrow, title, text }) {
 }
 
 function Header({ view, navigateTo }) {
-
   return (
     <header className="sticky top-0 z-40 border-b border-[#EEF0EC] bg-white/95 backdrop-blur-2xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
@@ -449,10 +455,29 @@ function ImageModal({ selectedImage, onClose }) {
   );
 }
 
-function ImageCluster({ images, title, onImageClick, largeFirst = false }) {
+/*
+  ImageCluster supports a per-project `layout` value so image arrangement
+  can be tuned to fit each project instead of always forcing the same grid:
+    - "single": one full-width image, cropped to a clean 4:3 box
+    - "stack":  images stacked vertically, each full width (good for 2 images,
+                especially portrait/tall shots)
+    - "grid":   images side by side in equal columns (good for 3+ images, or
+                2 wide/landscape images)
+    - "auto":   falls back to "stack" for 2 images, "grid" for 3+
+*/
+function ImageCluster({ images, title, onImageClick, layout = "auto" }) {
   if (!images?.length) return null;
 
-  if (images.length === 1) {
+  const resolvedLayout =
+    layout === "auto"
+      ? images.length === 1
+        ? "single"
+        : images.length === 2
+          ? "stack"
+          : "grid"
+      : layout;
+
+  if (resolvedLayout === "single") {
     return (
       <button
         type="button"
@@ -462,12 +487,34 @@ function ImageCluster({ images, title, onImageClick, largeFirst = false }) {
         <img
           src={images[0]}
           alt={title}
-          className="h-full max-h-[420px] w-full object-contain transition duration-500 group-hover:scale-[1.02]"
+          className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.02]"
         />
       </button>
     );
   }
 
+  if (resolvedLayout === "stack") {
+    return (
+      <div className="flex flex-col gap-3">
+        {images.map((image, index) => (
+          <button
+            key={image}
+            type="button"
+            onClick={() => onImageClick(image)}
+            className="group overflow-hidden rounded-[1.5rem]"
+          >
+            <img
+              src={image}
+              alt={`${title} ${index + 1}`}
+              className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            />
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  // resolvedLayout === "grid"
   return (
     <div className="grid gap-3 sm:grid-cols-2">
       {images.map((image, index) => (
@@ -475,14 +522,12 @@ function ImageCluster({ images, title, onImageClick, largeFirst = false }) {
           key={image}
           type="button"
           onClick={() => onImageClick(image)}
-          className={`${
-            largeFirst && index === 0 ? "sm:col-span-2" : ""
-          } group overflow-hidden rounded-[1.5rem]`}
+          className="group overflow-hidden rounded-[1.5rem]"
         >
           <img
             src={image}
             alt={`${title} ${index + 1}`}
-            className="h-56 w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+            className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
           />
         </button>
       ))}
@@ -803,7 +848,7 @@ function ProjectsView({ navigateTo, onImageClick }) {
                   images={project.images}
                   title={project.title}
                   onImageClick={onImageClick}
-                  largeFirst
+                  layout={project.layout ?? "auto"}
                 />
               </div>
 
@@ -1176,7 +1221,6 @@ export default function Page() {
     </>
   );
 }
-
 
 
 
