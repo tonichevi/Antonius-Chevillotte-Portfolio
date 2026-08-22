@@ -52,7 +52,7 @@ const PROJECTS = [
     details: [
       "Developed and refined tubing, connector, fitting, and encapsulation assemblies.",
       "Supported pressure-decay leak testing and failure-analysis workflows.",
-      "Worked across R&D, fabrication, and quality to improve documentation and design transfer.",
+      "Worked across R&D, fabrication, and the design engineering departments to improve documentation and design transfer.",
     ],
     meta: ["SaniSure", "2025–", "Bioprocess Hardware"],
     images: ["/images/SaniSureSystem.jpeg", "/images/IMG_7995.jpg"],
