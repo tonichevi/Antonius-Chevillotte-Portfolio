@@ -38,8 +38,8 @@ const PROJECTS = [
       "Interaction: the favorite button allows a user to lock a track in place and resume the song from where it last stopped. Each sound plays in five-second windows.",
     ],
     meta: ["UCSB Capstone", "2025–2026", "Assistive Technology"],
-    images: ["/images/StarRiderII.jpg"],
-    layout: "single",
+    images: ["/images/Wheelchair_Full.JPG", "/images/BanGOPresentation.jpg", "/images/Guitar_Open_BanGO.JPG","/images/KiCadEx.jpg"],
+    layout: "grid",
   },
   {
     id: "sanisure-bioprocess",
@@ -55,7 +55,7 @@ const PROJECTS = [
       "Worked across R&D, fabrication, and quality to improve documentation and design transfer.",
     ],
     meta: ["SaniSure", "2025–", "Bioprocess Hardware"],
-    images: ["/images/IMG_7857.jpg", "/images/IMG_7995.jpg"],
+    images: ["/images/SaniSureSystem.jpeg", "/images/IMG_7995.jpg"],
     layout: "stack",
   },
   {
@@ -74,27 +74,31 @@ const PROJECTS = [
     ],
     meta: ["Dressaire Lab", "2025–", "Biointerfaces / Soft Matter"],
     images: [
-      "/images/DressaireLabSetup.JPG",
+      "/images/BIFFLabUpdated.JPG",
       "/images/DressaireLabImage1.jpg",
-      "/images/DressaireGel.jpeg",
+      "/images/BIFFLabUpdated3.JPG", 
+      "/images/BIFFLabUpdated2.JPG"
     ],
     layout: "grid",
   },
-  {
-    id: "frog",
-    title: "Frog Jumper Mechanism",
-    subtitle: "Teaching dynamics through playful hardware",
-    summary:
-      "A spring-loaded mechanism that turns stored elastic energy into a repeatable jump using simple, accessible materials.",
+    {
+    id: "solidworks",
+    title: "CAD (SolidWorks) Design Set",
+    subtitle: "Capstone Project Guitar Base, steering wheel, FEA on Male Luer Lock Connectoe, and more",
     description:
-      "Designed a spring-loaded mechanism that converts stored elastic potential energy into a repeatable jump. The mechanism was built using zip ties, popsicle sticks, a 5V battery, rubber bands, and a high-torque, low-speed motor.",
+      "Collection of CAD and FEA projects including an assembly drawing of the guitar subassembly for my senior capstone project, an ergonomic FSAE steering wheel, a male luer lock connector subjected to an FEA study which was followed by an optimization study, and an experimental off-road skateboard.",
     details: [
-      "Demonstrated energy storage, release, and mechanical timing through a hands-on build.",
-      "Used constrained materials to keep the mechanism simple, playful, and teachable.",
+      "Modeled assemblies and components with manufacturability and structural performance in mind.",
+      "Used FEA and design iteration to explore stiffness, loading, and geometry tradeoffs.",
     ],
-    meta: ["UCSB", "2025", "Mechanisms"],
-    images: ["/images/IMG_9483.JPG", "/images/Jumper.jpg"],
-    layout: "stack",
+    meta: ["UCSB", "2024–2026", "CAD / FEA"],
+    images: [
+      "/images/BanGO Guitar Base Assembly.jpg",
+      "/images/SteeringWheel.jpg",
+      "/images/MaleLuerLock.jpg",
+      "/images/SkateboardCAD.jpg",
+    ],
+    layout: "grid",
   },
   {
     id: "urca-steering",
@@ -112,26 +116,21 @@ const PROJECTS = [
     images: ["/images/SteeringUrca.jpg"],
     layout: "single",
   },
-  {
-    id: "solidworks",
-    title: "SOLIDWORKS Design Set",
-    subtitle: "TV mount, steering wheel, truss bridge, and more",
+   {
+    id: "frog",
+    title: "Frog Jumper Mechanism",
+    subtitle: "Teaching dynamics through playful hardware",
     summary:
-      "A CAD and FEA collection spanning structural design, ergonomic hardware, vehicle components, and experimental mobility concepts.",
+      "A spring-loaded mechanism that turns stored elastic energy into a repeatable jump using simple, accessible materials.",
     description:
-      "Collection of CAD and FEA projects including a stiffness-optimized TV mount, an ergonomic FSAE steering wheel, a truss bridge exposed to loading in an FEA simulation, and an experimental off-road skateboard.",
+      "Designed a spring-loaded mechanism that converts stored elastic potential energy into a repeatable jump. The mechanism was built using zip ties, popsicle sticks, a 5V battery, rubber bands, and a high-torque, low-speed motor.",
     details: [
-      "Modeled assemblies and components with manufacturability and structural performance in mind.",
-      "Used FEA and design iteration to explore stiffness, loading, and geometry tradeoffs.",
+      "Demonstrated energy storage, release, and mechanical timing through a hands-on build.",
+      "Used constrained materials to keep the mechanism simple, playful, and teachable.",
     ],
-    meta: ["UCSB", "2024–2025", "CAD / FEA"],
-    images: [
-      "/images/TVSketch.jpg",
-      "/images/SteeringWheel.jpg",
-      "/images/BridgeTrussFEA.JPG",
-      "/images/SkateboardCAD.jpg",
-    ],
-    layout: "grid",
+    meta: ["UCSB", "2025", "Mechanisms"],
+    images: ["/images/IMG_9483.JPG", "/images/Jumper.jpg"],
+    layout: "stack",
   },
   {
     id: "sanisure-dash",
