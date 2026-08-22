@@ -1099,7 +1099,7 @@ function ContactView({ navigateTo }) {
             <div className="p-5">
               <h2 className="text-xl font-semibold text-[#151A15]">{NAME}</h2>
               <p className="mt-1 text-sm text-[#536058]">
-                Mechanical Engineering, UCSB
+                Bioprocess Engineering, UC Berkeley
               </p>
 
               <div className="mt-5 space-y-2 text-sm text-[#425047]">
