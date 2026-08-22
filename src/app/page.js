@@ -298,21 +298,15 @@ function normalizeHash() {
 ----------------------------------------------------- */
 
 function Background() {
-  return (
-    <div className="fixed inset-0 -z-50 bg-[#F6F7F3]">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(239,242,236,0.94)_52%,rgba(228,234,226,0.96)_100%)]" />
-      <div className="absolute left-[-12rem] top-[-10rem] h-[26rem] w-[26rem] rounded-full bg-[#0E6B54]/10 blur-3xl" />
-      <div className="absolute right-[-14rem] top-[18rem] h-[28rem] w-[28rem] rounded-full bg-[#7EA48E]/20 blur-3xl" />
-      <div className="absolute bottom-[-12rem] left-1/2 h-[24rem] w-[42rem] -translate-x-1/2 rounded-full bg-white/70 blur-3xl" />
-    </div>
-  );
+  // Plain white background — no gradients, no tint, no decorative blur shapes.
+  return <div className="fixed inset-0 -z-50 bg-white" />;
 }
 
 function Pill({ children, tone = "green" }) {
   const toneClass =
     tone === "dark"
       ? "bg-[#1A1F1A] text-white border-[#1A1F1A]"
-      : "bg-white/60 text-[#0E6B54] border-[#0E6B54]/20";
+      : "bg-white text-[#0E6B54] border-[#0E6B54]/20";
 
   return (
     <span
@@ -326,7 +320,7 @@ function Pill({ children, tone = "green" }) {
 function SoftCard({ children, className = "" }) {
   return (
     <div
-      className={`rounded-[2rem] border border-white/100 bg-white/60 shadow-[0_24px_70px_rgba(22,45,33,0.08)] backdrop-blur-xl ${className}`}
+      className={`rounded-[2rem] border border-[#E7E9E5] bg-white shadow-[0_24px_70px_rgba(22,45,33,0.06)] ${className}`}
     >
       {children}
     </div>
@@ -345,7 +339,7 @@ function Button({
       ? "bg-[#0E6B54] text-white hover:bg-[#0B5A47] shadow-[0_10px_28px_rgba(14,107,84,0.22)]"
       : variant === "ghost"
         ? "bg-transparent text-[#0E6B54] hover:bg-[#0E6B54]/10"
-        : "bg-white/70 text-[#1A1F1A] border border-[#DDE3DA] hover:bg-white";
+        : "bg-white text-[#1A1F1A] border border-[#DDE3DA] hover:bg-[#F7F8F6]";
 
   return (
     <button
@@ -382,7 +376,7 @@ function Header({ view, navigateTo }) {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/70 bg-[#F6F7F3]/100 backdrop-blur-2xl">
+    <header className="sticky top-0 z-40 border-b border-[#EEF0EC] bg-white/95 backdrop-blur-2xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <button
           type="button"
@@ -404,7 +398,7 @@ function Header({ view, navigateTo }) {
         </button>
 
         <nav className="flex flex-1 justify-end overflow-x-auto">
-          <div className="flex items-center gap-1 rounded-full border border-white/100 bg-white/60 p-1 shadow-sm">
+          <div className="flex items-center gap-1 rounded-full border border-[#EEF0EC] bg-white p-1 shadow-sm">
             {NAV_ITEMS.map((item) => {
               const active = view === item.id;
 
@@ -417,7 +411,7 @@ function Header({ view, navigateTo }) {
                   className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium transition md:px-4 ${
                     active
                       ? "bg-[#0E6B54] text-white shadow-sm"
-                      : "text-[#4E5B53] hover:bg-[#EEF2EB] hover:text-[#0E6B54]"
+                      : "text-[#4E5B53] hover:bg-[#F1F2EF] hover:text-[#0E6B54]"
                   }`}
                 >
                   {item.label}
@@ -474,7 +468,7 @@ function ImageCluster({ images, title, onImageClick, largeFirst = false }) {
       <button
         type="button"
         onClick={() => onImageClick(images[0])}
-        className="group block w-full overflow-hidden rounded-[1.75rem] bg-[#E4E9E2]"
+        className="group block w-full overflow-hidden rounded-[1.75rem]"
       >
         <img
           src={images[0]}
@@ -494,7 +488,7 @@ function ImageCluster({ images, title, onImageClick, largeFirst = false }) {
           onClick={() => onImageClick(image)}
           className={`${
             largeFirst && index === 0 ? "sm:col-span-2" : ""
-          } group overflow-hidden rounded-[1.5rem] bg-[#E4E9E2]`}
+          } group overflow-hidden rounded-[1.5rem]`}
         >
           <img
             src={image}
@@ -543,8 +537,7 @@ function Hero({ navigateTo }) {
 
       <motion.div {...fadeIn} transition={{ ...fadeIn.transition, delay: 0.08 }}>
         <SoftCard className="relative mx-auto max-w-[31rem] overflow-hidden p-4">
-          <div className="absolute inset-x-10 top-8 h-52 rounded-full bg-[#0E6B54]/10 blur-3xl" />
-          <div className="relative overflow-hidden rounded-[1.65rem] bg-[#E8ECE5]">
+          <div className="relative overflow-hidden rounded-[1.65rem]">
             <img
               src={PROFILE_IMAGE}
               alt={NAME}
@@ -553,7 +546,7 @@ function Hero({ navigateTo }) {
           </div>
 
           <div className="relative mt-4 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl bg-white/70 p-4">
+            <div className="rounded-2xl bg-[#F7F8F6] p-4">
               <div className="text-2xl font-semibold text-[#0E6B54]">BS</div>
               <div className="mt-1 text-xs text-[#647067]">
                 Mechanical Engineering - University of California, Santa
@@ -561,14 +554,14 @@ function Hero({ navigateTo }) {
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white/70 p-4">
+            <div className="rounded-2xl bg-[#F7F8F6] p-4">
               <div className="text-2xl font-semibold text-[#0E6B54]">R&D</div>
               <div className="mt-1 text-xs text-[#647067]">
                 Bioprocess Systems
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white/70 p-4">
+            <div className="rounded-2xl bg-[#F7F8F6] p-4">
               <div className="text-2xl font-semibold text-[#0E6B54]">
                 UC Berkeley
               </div>
@@ -596,7 +589,7 @@ function ShowcasePanel({
   return (
     <motion.article
       {...fadeIn}
-      className="grid min-h-[34rem] overflow-hidden rounded-[2.3rem] border border-white/100 bg-white/60 shadow-[0_28px_80px_rgba(22,45,33,0.08)] backdrop-blur-xl md:grid-cols-2"
+      className="grid min-h-[34rem] overflow-hidden rounded-[2.3rem] border border-[#E7E9E5] bg-white shadow-[0_28px_80px_rgba(22,45,33,0.06)] md:grid-cols-2"
     >
       <div
         className={`flex flex-col justify-center p-8 md:p-12 ${
@@ -619,12 +612,8 @@ function ShowcasePanel({
       </div>
 
       <div
-        className={`relative min-h-[22rem] bg-[#E6EBE4] ${
-          reverse ? "md:order-1" : ""
-        }`}
+        className={`relative min-h-[22rem] ${reverse ? "md:order-1" : ""}`}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.86),transparent_48%)]" />
-
         {image ? (
           <img
             src={image}
@@ -671,7 +660,7 @@ function HomeView({ navigateTo }) {
         >
           <div className="grid gap-2 sm:grid-cols-3">
             {featured.map((project) => (
-              <div key={project.id} className="rounded-2xl bg-white/70 p-4">
+              <div key={project.id} className="rounded-2xl bg-[#F7F8F6] p-4">
                 <div className="text-sm font-semibold text-[#151A15]">
                   {project.title}
                 </div>
@@ -813,7 +802,7 @@ function ProjectsView({ navigateTo, onImageClick }) {
           <motion.article
             key={project.id}
             {...fadeIn}
-            className="overflow-hidden rounded-[2.2rem] border border-white/100 bg-white/60 shadow-[0_22px_70px_rgba(22,45,33,0.08)] backdrop-blur-xl"
+            className="overflow-hidden rounded-[2.2rem] border border-[#E7E9E5] bg-white shadow-[0_22px_70px_rgba(22,45,33,0.06)]"
           >
             <div
               className={`grid gap-0 lg:grid-cols-[0.92fr,1.08fr] ${
@@ -886,9 +875,9 @@ function ExperienceView({ navigateTo }) {
             <motion.article
               key={item.id}
               {...fadeIn}
-              className="relative grid gap-5 rounded-[2rem] border border-white/100 bg-white/60 p-6 shadow-[0_20px_60px_rgba(22,45,33,0.07)] backdrop-blur-xl md:grid-cols-[0.34fr,0.66fr] md:p-8 md:pl-12"
+              className="relative grid gap-5 rounded-[2rem] border border-[#E7E9E5] bg-white p-6 shadow-[0_20px_60px_rgba(22,45,33,0.05)] md:grid-cols-[0.34fr,0.66fr] md:p-8 md:pl-12"
             >
-              <div className="absolute left-[0.8rem] top-9 hidden h-3 w-3 rounded-full bg-[#0E6B54] ring-8 ring-[#F6F7F3] md:block" />
+              <div className="absolute left-[0.8rem] top-9 hidden h-3 w-3 rounded-full bg-[#0E6B54] ring-8 ring-white md:block" />
 
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0E6B54]/70">
@@ -984,7 +973,7 @@ function BackgroundView({ navigateTo }) {
 
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
               {EXTRAS.map((item) => (
-                <div key={item.title} className="rounded-3xl bg-white/60 p-5">
+                <div key={item.title} className="rounded-3xl bg-[#F7F8F6] p-5">
                   <h3 className="text-base font-semibold text-[#151A15]">
                     {item.title}
                   </h3>
@@ -1054,7 +1043,7 @@ function ContactView({ navigateTo }) {
 
             <a
               href="tel:+19146499132"
-              className="inline-flex items-center justify-center rounded-full border border-[#DDE3DA] bg-white/70 px-5 py-3 text-sm font-medium text-[#1A1F1A] transition hover:bg-white"
+              className="inline-flex items-center justify-center rounded-full border border-[#DDE3DA] bg-white px-5 py-3 text-sm font-medium text-[#1A1F1A] transition hover:bg-[#F7F8F6]"
             >
               Call
             </a>
@@ -1066,7 +1055,7 @@ function ContactView({ navigateTo }) {
           transition={{ ...fadeIn.transition, delay: 0.08 }}
         >
           <SoftCard className="overflow-hidden p-5">
-            <div className="overflow-hidden rounded-[1.7rem] bg-[#E4E9E2]">
+            <div className="overflow-hidden rounded-[1.7rem]">
               <img
                 src={PROFILE_IMAGE}
                 alt={NAME}
@@ -1198,6 +1187,7 @@ export default function Page() {
     </>
   );
 }
+
 
 
 
