@@ -371,9 +371,6 @@ function SectionIntro({ eyebrow, title, text }) {
 }
 
 function Header({ view, navigateTo }) {
-  const handlePrint = () => {
-    if (typeof window !== "undefined") window.print();
-  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-[#EEF0EC] bg-white/95 backdrop-blur-2xl">
@@ -420,14 +417,6 @@ function Header({ view, navigateTo }) {
             })}
           </div>
         </nav>
-
-        <Button
-          onClick={handlePrint}
-          variant="secondary"
-          className="hidden text-xs md:inline-flex"
-        >
-          Download PDF
-        </Button>
       </div>
     </header>
   );
