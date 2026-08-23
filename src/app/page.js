@@ -555,8 +555,7 @@ function Hero({ navigateTo }) {
           <p className="mt-6 max-w-2xl text-base leading-8 text-[#526158] md:text-lg">
             I’m a Masters of Bioprocess Engineering (MBPE) student at the
             Unversity of California, Berkeley working across assistive devices,
-            soft-material interfaces, and single-use bioprocessing systems for
-            cell-therapy manufacturing.
+            soft-material interfaces, and single-use bioprocessing upstream and downstream processes focusing on cell & gene therapy and pharamaceuticals.
           </p>
         </div>
 
@@ -577,31 +576,32 @@ function Hero({ navigateTo }) {
               className="h-[32rem] w-full object-cover"
             />
           </div>
-
+         <div className="rounded-2xl bg-[#F7F8F6] p-4">
+              <div className="text-2xl font-semibold text-[#0E6B54]">
+                MS - UC Berkeley
+              </div>
+              <div className="mt-1 text-xs text-[#647067]">
+                Currently enrolled in an intensive 9-month Master of Bioprocess Engineering (MBPE)
+              </div>
+            </div>
           <div className="relative mt-4 grid gap-3 sm:grid-cols-3">
             <div className="rounded-2xl bg-[#F7F8F6] p-4">
-              <div className="text-2xl font-semibold text-[#0E6B54]">BS</div>
+              <div className="text-2xl font-semibold text-[#0E6B54]">BS - UC Santa Barbara</div>
               <div className="mt-1 text-xs text-[#647067]">
-                Mechanical Engineering - University of California, Santa
-                Barbara
+                Attained a BS degree in Mechanical Engineering with academic honors 
               </div>
             </div>
 
             <div className="rounded-2xl bg-[#F7F8F6] p-4">
-              <div className="text-2xl font-semibold text-[#0E6B54]">R&D</div>
+              <div className="text-2xl font-semibold text-[#0E6B54]"> Industry & Research </div>
               <div className="mt-1 text-xs text-[#647067]">
-                Bioprocess Systems
+                 • Bio-inspired fluid-flow laboratory (BIFF Lab)
+                 • Design engineering in single-use bioprocessing (SaniSure)
+                 • Requirements engineering in automotive (Audi)
               </div>
             </div>
 
-            <div className="rounded-2xl bg-[#F7F8F6] p-4">
-              <div className="text-2xl font-semibold text-[#0E6B54]">
-                UC Berkeley
-              </div>
-              <div className="mt-1 text-xs text-[#647067]">
-                Master of Bioprocess Engineering
-              </div>
-            </div>
+   
           </div>
         </SoftCard>
       </motion.div>
