@@ -38,7 +38,7 @@ const PROJECTS = [
       "Interaction: the favorite button allows a user to lock a track in place and resume the song from where it last stopped. Each sound plays in five-second windows.",
     ],
     meta: ["UCSB Capstone", "2025–2026", "Assistive Technology"],
-    images: ["/images/Wheelchair_Full.JPG", "/images/BanGOPresentation.jpg", "/images/Guitar_Open_BanGO.JPG","/images/KiCadEx.jpg"],
+    images: ["/images/Wheelchair_Full.JPG", "/images/BanGOPresentation.jpg", "/images/Guitar_Open_BanGO.JPG","/images/KiEx.jpg"],
     layout: "grid",
   },
   {
@@ -83,13 +83,14 @@ const PROJECTS = [
   },
     {
     id: "solidworks",
-    title: "CAD (SolidWorks) Design Set",
+    title: "CAD Design Set",
     subtitle: "Capstone Project Guitar Base, steering wheel, FEA on Male Luer Lock Connectoe, and more",
     description:
       "Collection of CAD and FEA projects including an assembly drawing of the guitar subassembly for my senior capstone project, an ergonomic FSAE steering wheel, a male luer lock connector subjected to an FEA study which was followed by an optimization study, and an experimental off-road skateboard.",
     details: [
-      "Modeled assemblies and components with manufacturability and structural performance in mind.",
-      "Used FEA and design iteration to explore stiffness, loading, and geometry tradeoffs.",
+      "Modeled assemblies and components with manufacturability, structural integrity, and tolerance stacking in mind.",
+      "Used FEA in both Fusion and SolidWorks and design iteration (i.e. Fusion's 'Optimization Study').",
+       "Familiarity with topology optimization and design studies",
     ],
     meta: ["UCSB", "2024–2026", "CAD / FEA"],
     images: [
@@ -121,7 +122,7 @@ const PROJECTS = [
     title: "Frog Jumper Mechanism",
     subtitle: "Teaching dynamics through playful hardware",
     summary:
-      "A spring-loaded mechanism that turns stored elastic energy into a repeatable jump using simple, accessible materials.",
+      "A week-long 4-person project as part of the 'Intro to Design' class at UCSB ",
     description:
       "Designed a spring-loaded mechanism that converts stored elastic potential energy into a repeatable jump. The mechanism was built using zip ties, popsicle sticks, a 5V battery, rubber bands, and a high-torque, low-speed motor.",
     details: [
@@ -137,7 +138,7 @@ const PROJECTS = [
     title: "SaniSure Power BI Dashboards",
     subtitle: "Bioprocess analytics at scale",
     summary:
-      "R&D and quality dashboards for chemical compatibility, engagement testing, and design-pipeline visibility.",
+      "Developed dashboards using Power BI and Power Query.",
     description:
       "Dashboards used across R&D and Quality for engagement testing, chemical compatibility, and throughput tracking across design pipelines.",
     details: [
@@ -157,14 +158,14 @@ const EXPERIENCE = [
   {
     id: "dressaire",
     role: "Fluid Dynamics Researcher",
-    company: "Dressaire Lab · UCSB",
+    company: "Dressaire Lab (BIFF Lab)· UCSB",
     period: "Oct 2025 – Present",
     location: "Santa Barbara, CA",
     summary:
       "Soft-matter research on capillary bridges, wetting, adhesion, and experimental gels for biomedical interfaces.",
     bullets: [
       "Study capillary bridges in soft gels relevant to biomedical interfaces.",
-      "Build fixtures to measure wetting, adhesion, and force–separation curves.",
+      "Built fixture using a Thorlabs NRT100/M motorized vertical translation stage to measure wetting, adhesion, and force–separation curves.",
       "Connect experimental mechanics and image analysis to soft-material behavior.",
     ],
   },
