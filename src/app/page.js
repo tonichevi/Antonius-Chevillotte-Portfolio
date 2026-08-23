@@ -294,9 +294,9 @@ const fadeIn = {
 const VIEWS = NAV_ITEMS.map((item) => item.id);
 
 function normalizeHash() {
-  if (typeof window === "undefined") return "home";
+  if (typeof window === "undefined") return "";
   const hash = window.location.hash.replace("#", "").trim();
-  return VIEWS.includes(hash) ? hash : "home";
+  return VIEWS.includes(hash) ? hash : "";
 }
 
 /* -----------------------------------------------------
@@ -382,9 +382,9 @@ function Header({ view, navigateTo }) {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <button
           type="button"
-          onClick={() => navigateTo("home")}
+          onClick={() => navigateTo("")}
           className="flex min-w-fit items-center gap-3 text-left"
-          aria-label="Go to homepage"
+          aria-label="Go to page"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#0E6B54] text-sm font-semibold text-white">
             TC
@@ -535,7 +535,7 @@ function ImageCluster({ images, title, onImageClick, layout = "auto" }) {
 }
 
 /* -----------------------------------------------------
-   HOME VIEW
+    VIEW
 ----------------------------------------------------- */
 
 function Hero({ navigateTo }) {
@@ -595,9 +595,7 @@ function Hero({ navigateTo }) {
             <div className="rounded-2xl bg-[#F7F8F6] p-4">
               <div className="text-2xl font-semibold text-[#0E6B54]"> Industry & Research </div>
               <div className="mt-1 text-xs text-[#647067]">
-                 • Bio-inspired fluid-flow laboratory (BIFF Lab)
-                 • Design engineering in single-use bioprocessing (SaniSure)
-                 • Requirements engineering in automotive (Audi)
+               Bio-inspired fluid-flow laboratory (BIFF Lab), Design engineering in single-use bioprocessing (SaniSure), Requirements engineering in automotive (Audi)
               </div>
             </div>
 
